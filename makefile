@@ -10,7 +10,7 @@
 # make zip: cria o arquivo zip para a submissão
 #=======================================================
 
-objects = main.o input.o output.o game.o player.o bomb.o game.o map.o item.o
+objects = main.o input.o output.o game.o player.o bomb.o game.o map.o item.o powerups.o
 flags = -g -pthread -lncurses
 
 all: $(objects) 

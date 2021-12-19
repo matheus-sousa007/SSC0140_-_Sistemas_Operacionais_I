@@ -4,6 +4,9 @@ using namespace std;
 
 class Player {
 public:
+    int max_bombs;
+    int bomb_range;
+    
     Player(int x, int y); 
     Player();  
     void move(int x, int y);
@@ -27,8 +30,6 @@ private:
     int y;
     bool alive;
     int bombs_placed;
-    int max_bombs;
-    int bomb_range;
     
     mutex *m;
 };
