@@ -40,24 +40,39 @@ bool Bomb::explode(){
 
         Item* item;
 
-        if ((item = GAME -> map -> get_item(x + i, y)) && down)
+        if (down && (item = GAME -> map -> get_item(x + i, y)))
             down = item -> explode();
-        if (down) GAME -> map -> add_item(new Explosion(x + i, y));
-    
+        if (down) {
+            if (item)
+                down = item->is_passable();
+            GAME -> map -> add_item(new Explosion(x + i, y));
+        }
         
-        if ((item = GAME -> map -> get_item(x - i, y)) && up)
+        if (up && (item = GAME -> map -> get_item(x - i, y)))
             up = item -> explode();
-        if (up) GAME -> map -> add_item(new Explosion(x - i, y));
+        if (up)  {
+            if (item)
+                up = item->is_passable();
+            GAME -> map -> add_item(new Explosion(x - i, y));
+        }
         
 
-        if ((item = GAME -> map -> get_item(x, y + i)) && right)
+        if (right && (item = GAME -> map -> get_item(x, y + i)))
             right = item -> explode();
-        if (right) GAME -> map -> add_item(new Explosion(x, y + i));
+        if (right) {
+            if (item)
+                right = item->is_passable();
+            GAME -> map -> add_item(new Explosion(x, y + i));
+        } 
         
 
-        if ((item = GAME -> map -> get_item(x, y - i)) && left)
+        if (left && (item = GAME -> map -> get_item(x, y - i)))
             left = item -> explode();
-        if (left) GAME -> map -> add_item(new Explosion(x, y - i));
+        if (left) {
+            if (item)
+                left = item->is_passable();
+            GAME -> map -> add_item(new Explosion(x, y - i));
+        }
             
     }
 
