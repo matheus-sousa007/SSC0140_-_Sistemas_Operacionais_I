@@ -3,6 +3,7 @@
 
 #include "game.h"
 #include "item.h"
+#include "powerups.h"
 
 Item::Item(int x, int y, bool passable, bool destructible, chtype c) {
     this->x = x;
@@ -75,4 +76,29 @@ void Item::collide(Player* player) {
 
 
 Wall::Wall(int x, int y) : Item(x, y, false, false, ' ' | A_REVERSE) {}
-DestructibleWall::DestructibleWall(int x, int y) : Item(x, y, false, true, '#') {}
+
+DestructibleWall::DestructibleWall(int x, int y) : Item(x, y, false, true, '#') {
+}
+
+bool DestructibleWall::explode() {
+    this->countdown_thread = thread(&DestructibleWall::place_powerup, this);
+    return is_destructible();
+}
+
+void DestructibleWall::place_powerup() {
+    this_thread::sleep_for(chrono::milliseconds(EXPLOSION_LIFETIME + 20));
+    // Random PowerUp will appear 1/3 of the time
+    if (rand() % 3) {
+        // The random powerup can be either a ExtraBomb or ExtraRange
+        int powerup_type = rand() % 2;
+
+        switch (powerup_type)
+        {
+        case 0:
+            GAME -> map -> add_item(new ExtraRange(this->x, this->y));
+            break;
+        default:
+            GAME -> map -> add_item(new ExtraBomb(this->x, this->y));
+            break;
+        }
+    }}

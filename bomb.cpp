@@ -6,7 +6,6 @@ using namespace std;
 #include "game.h"
 
 #define BOMB_LIFETIME 3000
-#define EXPLOSION_LIFETIME 1000
 
 Bomb::Bomb(int x, int y, int range, Player* player) : Item(x, y, false, true, '+' | A_BLINK){
 

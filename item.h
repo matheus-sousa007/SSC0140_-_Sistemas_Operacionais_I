@@ -1,6 +1,6 @@
 #pragma once
 #include <ncurses.h>
-
+#include <thread>
 using namespace std;
 
 #include "player.h"
@@ -39,5 +39,9 @@ class Wall : public Item {
 };
 
 class DestructibleWall : public Item {
-    public: DestructibleWall(int x, int y);
+    public: 
+        thread countdown_thread;
+        DestructibleWall(int x, int y);
+        bool explode();
+        void place_powerup();
 };

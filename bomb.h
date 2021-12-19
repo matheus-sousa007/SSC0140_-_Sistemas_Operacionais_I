@@ -7,6 +7,8 @@
 #include "item.h"
 using namespace std;
 
+#define EXPLOSION_LIFETIME 1000
+
 class Bomb : public Item{
 public:
     Bomb(int x, int y, int range, Player* player);
