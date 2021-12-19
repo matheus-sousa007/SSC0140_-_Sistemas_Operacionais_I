@@ -18,8 +18,6 @@ Game::Game(){
 } 
 
 void Game::start(){
-    players.push_back(new Player(1, 1));
-    players.push_back(new Player(map->W - 2, map->H - 2));
 
     for (int i = 1; i < this -> map -> W - 1; i++){
         map -> add_item(new Wall(i,0));
@@ -38,7 +36,7 @@ void Game::start(){
 
     for (int i = 1; i < this -> map -> W - 1; i++) {
         for (int j = 1; j < this -> map -> H - 1; j++) {
-            if (map->get_item(i, j) == NULL && rand() % 2)
+            if (map->get_item(i, j) == NULL && rand() % 3)
                 map -> add_item(new DestructibleWall(i, j));
         }
     }
