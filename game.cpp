@@ -10,13 +10,16 @@ using namespace std;
 #include "bomb.h"
 #include "map.h"
 
+#define MAP_HEIGHT 25
+#define MAP_WIDTH 55
+
 Game::Game(){
-    this -> map = new Map(15,15);
+    this -> map = new Map(MAP_HEIGHT, MAP_WIDTH);
 } 
 
 void Game::start(){
-    players.push_back(new Player(2,1));
-    players.push_back(new Player(6,5));
+    players.push_back(new Player(1, 1));
+    players.push_back(new Player(map->W - 2, map->H - 2));
 
     for (int i = 1; i < this -> map -> W - 1; i++){
         map -> add_item(new Wall(i,0));
@@ -25,9 +28,6 @@ void Game::start(){
         for (int j = 1; j < this -> map -> H - 1; j++){
             if ((j % 2 == 0) && (i % 2 == 0))
                 map -> add_item(new Wall(i,j));
-
-            if ((j % 4 == 1) && (i % 4 == 1))
-                map -> add_item(new DestructibleWall(i,j));
         }
     }
 
@@ -35,6 +35,24 @@ void Game::start(){
         map -> add_item(new Wall(0,i));
         map -> add_item(new Wall(map -> W - 1,i));
     }
+
+    for (int i = 1; i < this -> map -> W - 1; i++) {
+        for (int j = 1; j < this -> map -> H - 1; j++) {
+            if (map->get_item(i, j) == NULL && rand() % 2)
+                map -> add_item(new DestructibleWall(i, j));
+        }
+    }
+
+    // Making room for players to start
+    map->clear_item(1, 2);
+    map->clear_item(1, 1);
+    map->clear_item(2, 1);
+    players.push_back(new Player(1, 1));
+
+    map->clear_item(map->W - 2, map->H - 3);
+    map->clear_item(map->W - 2, map->H - 2);
+    map->clear_item(map->W - 3, map->H - 2);
+    players.push_back(new Player(map->W - 2, map->H - 2));
 
     thread input_thread(&input_loop_fn);
     thread output_thread(&output_loop_fn);
