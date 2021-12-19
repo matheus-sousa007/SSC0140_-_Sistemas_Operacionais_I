@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <ncurses.h>
+#include <time.h>
 
 #include "game.h"
 
@@ -10,7 +11,9 @@ using namespace std;
 
 Game* GAME;
 
-int main(){    
+int main(){
+    srand(time(NULL));
+    
     initscr();  
     noecho();
     setlocale(LC_ALL, "");

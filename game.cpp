@@ -36,7 +36,7 @@ void Game::start(){
 
     for (int i = 1; i < this -> map -> W - 1; i++) {
         for (int j = 1; j < this -> map -> H - 1; j++) {
-            if (map->get_item(i, j) == NULL && rand() % 3)
+            if (map->get_item(i, j) == NULL && !(rand() % 3))
                 map -> add_item(new DestructibleWall(i, j));
         }
     }
