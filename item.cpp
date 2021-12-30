@@ -102,3 +102,5 @@ void DestructibleWall::place_powerup() {
             break;
         }
     }}
+
+Star::Star(int x, int y) : Item(x, y, false, false, '*' | A_BOLD){}

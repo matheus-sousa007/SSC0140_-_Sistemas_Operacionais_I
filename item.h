@@ -45,3 +45,7 @@ class DestructibleWall : public Item {
         bool explode();
         void place_powerup();
 };
+
+class Star : public Item {
+	public: Star(int x, int y);
+};

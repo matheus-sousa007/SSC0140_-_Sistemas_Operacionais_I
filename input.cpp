@@ -1,17 +1,23 @@
 #include <thread>
 #include <iostream>
 #include <ncurses.h>
+#include <future>
 
 #include "game.h"
 #include "player.h"
 
 void input_loop_fn(){
-    while(true){
+    while(!GAME->finished_game || GAME->play_again || !GAME->is_answered || !GAME->start_game){
         
         int input = getch();
 
+        if(!GAME->start_game){
+		if(input == '\n')
+			GAME->start_game = true;
+	}
+	else if(!GAME->finished_game){
         // if the user pressed an arrow key
-        if (input == 27){
+	if (input == 27){
             getch();
             input = getch();
             switch(input){
@@ -50,5 +56,19 @@ void input_loop_fn(){
                     break;
             }
         }
+	}
+	else{
+		switch(input){
+			case '\n':
+				GAME->play_again = true;
+				GAME->is_answered = true;
+				break;
+			case 27:
+				GAME->play_again = false;
+				GAME->is_answered = true;
+				break;
+
+		}
+	}
     }
 }

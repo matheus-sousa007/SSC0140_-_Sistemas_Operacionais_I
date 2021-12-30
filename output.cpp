@@ -6,7 +6,7 @@
 #include "output.h"
 
 void output_loop_fn(){
-    while (true){
+    while (GAME->play_again){
 
         // Clears the screen
         clear();
@@ -43,7 +43,7 @@ void output_loop_fn(){
 
         refresh();
         // Sleeps for 1 second
-        this_thread::sleep_for(chrono::milliseconds(10));
+        this_thread::sleep_for(chrono::milliseconds(175));
     }
 }
 
