@@ -63,7 +63,8 @@ void input_loop_fn(){
 				GAME->play_again = true;
 				GAME->is_answered = true;
 				break;
-			case 27:
+			case 'q':
+			case 'Q':
 				GAME->play_again = false;
 				GAME->is_answered = true;
 				break;

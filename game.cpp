@@ -580,13 +580,11 @@ using namespace std;
 		map->add_item(new Item(MAP_HEIGHT-2, 34, false, false, 'i' | A_BOLD));
 		map->add_item(new Item(MAP_HEIGHT-2, 35, false, false, 'm' | A_BOLD));
 		map->add_item(new Item(MAP_HEIGHT-2, 37, false, false, '(' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 38, false, false, 'E' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 39, false, false, 'S' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 40, false, false, 'C' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 41, false, false, ')' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 43, false, false, 'N' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 44, false, false, 'a' | A_BOLD));
-		map->add_item(new Item(MAP_HEIGHT-2, 45, false, false, 'o' | A_BOLD));
+		map->add_item(new Item(MAP_HEIGHT-2, 38, false, false, 'Q' | A_BOLD));
+		map->add_item(new Item(MAP_HEIGHT-2, 39, false, false, ')' | A_BOLD));
+		map->add_item(new Item(MAP_HEIGHT-2, 41, false, false, 'N' | A_BOLD));
+		map->add_item(new Item(MAP_HEIGHT-2, 42, false, false, 'a' | A_BOLD));
+		map->add_item(new Item(MAP_HEIGHT-2, 43, false, false, 'o' | A_BOLD));
 			
 
 		// Delay
