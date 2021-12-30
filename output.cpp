@@ -6,11 +6,7 @@
 #include "output.h"
 
 void output_loop_fn(){
-    while (GAME->play_again){
-
-        // Clears the screen
-        clear();
-
+    while (GAME->play_again) {
         for (int x = 0; x < GAME -> map -> W; x++){
             for (int y = 0; y < GAME -> map -> H; y++){
 
@@ -43,7 +39,7 @@ void output_loop_fn(){
 
         refresh();
         // Sleeps for 1 second
-        this_thread::sleep_for(chrono::milliseconds(175));
+        this_thread::sleep_for(chrono::milliseconds(33));
     }
 }
 
