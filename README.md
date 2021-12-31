@@ -5,7 +5,7 @@
  - [João Marcos Cardoso da Silva](https://github.com/JoaoMarcosCSilva)
  - [João Guilherme Jarochinski Marinho](https://github.com/jj-marinho)
 
-## Portuguese Version (:brazil:)
+## Portuguese Version (<img src="./brazil.png" alt="Bandeira do Brasil" style="height: 50px; width:50px;"/>)
 
 ### Apresentação do trabalho
 Este trabalho tem por objetivo exercitar a implementação de conceitos aprendidos no curso de Sistemas Operacionais I ministrado pela professora Kalinka Regina Lucas Jaquie Castelo Branco. Dentre o conteúdo lecionado, o trabalho terá como foco a implementação de semáforos e threads em um contexto de aplicação qualquer. Neste trabalho, escolhemos fazer um protópico do jogo _BOMBERMAN_.
@@ -14,7 +14,7 @@ Este trabalho tem por objetivo exercitar a implementação de conceitos aprendid
 Para jogar este jogo, primeiro deve baixar o repositório em sua máquina. Após isso, execute o comando `make run` para compilar o programa (se necessário) e executá-lo.
 
 
-## English Version (:us:)
+## English Version (<img src="./united_states.png" alt="United States flag" style="height: 50px; width:50px;"/>)
 
 ### Homework presentation
 This homework has as a goal exercise an implementation of concepts learned in the Operating Systems I course taught by the teacher Kalinka Regina Lucas Jaquie Castelo Branco. Among the teached concepts, the homework will focus in a semaphores and threads implementation in any application context. In this homework, we choose to do a _BOMBERMAN_ game prototype.
