@@ -76,6 +76,7 @@ void Player::kill() {
     this->m->lock();
     this->alive = false;
     this->m->unlock();
+    GAME->finished_game = true;
 }
 
 int Player::get_max_bombs(){
