@@ -15,7 +15,7 @@ void input_loop_fn(){
 		if(input == '\n')
 			GAME->start_game = true;
 	}
-	else if(!GAME->finished_game){
+	else if(!GAME->finished_game && GAME->players.size()){
         // if the user pressed an arrow key
 	if (input == 27){
             getch();
