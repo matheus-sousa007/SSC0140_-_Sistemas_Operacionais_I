@@ -175,24 +175,24 @@ using namespace std;
 	    this->intro_screen();
 	    if(!this->start_game) this->explanation_screen();
 
-	    for (int i = 1; i < this -> map -> W - 1; i++){
+	    for (int i = 1; i < 15; i++){
 		map -> add_item(new Wall(i,0));
-		map -> add_item(new Wall(i,map -> H - 1));
+		map -> add_item(new Wall(i,14));
 	    
-		for (int j = 1; j < this -> map -> H - 1; j++){
+		for (int j = 1; j < 15; j++){
 		    if ((j % 2 == 0) && (i % 2 == 0))
 			map -> add_item(new Wall(i,j));
 		}
 	    }
 
-	    for (int i = 0; i < this -> map -> H; i++){
+	    for (int i = 0; i < 15; i++){
 		map -> add_item(new Wall(0,i));
-		map -> add_item(new Wall(map -> W - 1,i));
+		map -> add_item(new Wall(14,i));
 	    }
 
-	    for (int i = 1; i < this -> map -> W - 1; i++) {
-		for (int j = 1; j < this -> map -> H - 1; j++) {
-		    if (map->get_item(i, j) == NULL && !(rand() % 3))
+	    for (int i = 1; i < 15; i++) {
+		for (int j = 1; j < 15; j++) {
+		    if (map->get_item(i, j) == NULL && !(rand() % 2))
 			map -> add_item(new DestructibleWall(i, j));
 		}
 	    }
@@ -203,10 +203,10 @@ using namespace std;
 	    map->clear_item(2, 1);
 	    players.push_back(new Player(1, 1));
 
-	    map->clear_item(map->W - 2, map->H - 3);
-	    map->clear_item(map->W - 2, map->H - 2);
-	    map->clear_item(map->W - 3, map->H - 2);
-	    players.push_back(new Player(map->W - 2,map-> H - 2));
+	    map->clear_item(13, 12);
+	    map->clear_item(13, 13);
+	    map->clear_item(12, 13);
+	    players.push_back(new Player(13,13));
 
 	    this->play_again = true;    
 
