@@ -7,17 +7,18 @@
 
 void output_loop_fn(){
     while (GAME->play_again) {
+        
+        GAME->map->m->lock();        
+
         for (int x = 0; x < GAME -> map -> W; x++){
             for (int y = 0; y < GAME -> map -> H; y++){
 
-                Item* item = GAME -> map -> get_item(x, y);
+                Item* item = GAME -> map -> items[x][y];
 
                 if (item == NULL){
                     mvaddch(x, y, ' ');
                 } else {
-                    int x, y;
-                    item -> get_coordinates(x, y);
-                    mvaddch(x, y, item -> c);
+                    mvaddch(x, y,  item -> get_char());
                 }
                 
             }
@@ -30,16 +31,17 @@ void output_loop_fn(){
             
             int x, y;
             p -> get_coordinates(x, y);
-            Item* item = GAME -> map -> get_item(x, y);
+            Item* item = GAME -> map -> items[x][y];
             if (item != NULL)
                 mvaddch(x, y, 'P' | (A_REVERSE));
             else
                 mvaddch(x, y, 'P');
         }
-
+        GAME->map->m->unlock();
         refresh();
         // Sleeps for 1 second
         this_thread::sleep_for(chrono::milliseconds(33));
     }
+    
 }
 
