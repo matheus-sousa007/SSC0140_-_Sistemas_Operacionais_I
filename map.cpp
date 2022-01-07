@@ -60,7 +60,8 @@ void Map::clear_item(Item* item){
     item->get_coordinates(x, y);
     
     m->lock();
-    items[x][y] = NULL;
+    if (items[x][y] == item)
+        items[x][y] = NULL;
     m->unlock();
 }
 
