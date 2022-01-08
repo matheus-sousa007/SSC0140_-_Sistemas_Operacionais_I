@@ -26,6 +26,8 @@ public:
     // 2D array of pointers to the items in the map
     Item*** items;
 
+private:
+
     // Mutex for the map
     mutex* m;
 };
